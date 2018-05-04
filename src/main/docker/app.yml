@@ -9,10 +9,22 @@ services:
             - SPRING_DATA_MONGODB_URI=mongodb://microapp-mongodb:27017
             - SPRING_DATA_MONGODB_DATABASE=microapp
             - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+            - SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS=kafka
+            - SPRING_CLOUD_STREAM_KAFKA_BINDER_ZK_NODES=zookeeper
     microapp-mongodb:
         extends:
             file: mongodb.yml
             service: microapp-mongodb
+    kafka:
+        extends:
+            file: kafka.yml
+            service: kafka
+        environment:
+            - KAFKA_ADVERTISED_HOST_NAME=kafka
+    zookeeper:
+        extends:
+            file: kafka.yml
+            service: zookeeper
     consul:
         image: consul:0.9.3
         command: consul agent -dev -ui -client 0.0.0.0

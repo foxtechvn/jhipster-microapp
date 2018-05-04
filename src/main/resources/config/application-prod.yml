@@ -31,6 +31,14 @@ spring:
                prefer-ip-address: true
             host: localhost
             port: 8500
+        stream:
+            kafka:
+                binder:
+                    brokers: localhost
+                    zk-nodes: localhost
+            bindings:
+                output:
+                    destination: topic-jhipster
     data:
         mongodb:
             uri: mongodb://localhost:27017

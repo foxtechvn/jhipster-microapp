@@ -17,7 +17,7 @@
     "devDatabaseType": "mongodb",
     "prodDatabaseType": "mongodb",
     "searchEngine": false,
-    "messageBroker": false,
+    "messageBroker": "kafka",
     "serviceDiscoveryType": "consul",
     "buildTool": "maven",
     "enableSocialSignIn": false,
