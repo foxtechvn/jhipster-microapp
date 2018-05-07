@@ -36,10 +36,6 @@ spring:
                prefer-ip-address: true
             host: localhost
             port: 8500
-    data:
-        mongodb:
-            uri: mongodb://localhost:27017
-            database: microapp
     mail:
         host: localhost
         port: 25
