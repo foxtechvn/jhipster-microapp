@@ -526,8 +526,8 @@
                 </executions>
                 -->
                 <configuration>
-                    <repository>microapp</repository>
-                    <tag>latest</tag>
+                    <repository>registry.gitlab.com/foxtechvn/jhipster-microapp</repository>
+                    <tag>with-kafka</tag>
                     <contextDirectory>${project.build.directory}</contextDirectory>
                 </configuration>
             </plugin>
