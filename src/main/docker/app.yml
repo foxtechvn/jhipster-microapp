@@ -1,17 +1,17 @@
 version: '2'
 services:
     microapp-app:
-        image: microapp
+        image: registry.gitlab.com/foxtechvn/jhipster-microapp:postgresql
         environment:
             - SPRING_PROFILES_ACTIVE=prod,swagger
             - SPRING_CLOUD_CONSUL_HOST=consul
             - SPRING_CLOUD_CONSUL_PORT=8500
-            - SPRING_DATASOURCE_URL=jdbc:mariadb://microapp-mariadb:3306/microapp
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://microapp-postgresql:5432/microapp
             - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
-    microapp-mariadb:
+    microapp-postgresql:
         extends:
-            file: mariadb.yml
-            service: microapp-mariadb
+            file: postgresql.yml
+            service: microapp-postgresql
     consul:
         image: consul:0.9.3
         command: consul agent -dev -ui -client 0.0.0.0
