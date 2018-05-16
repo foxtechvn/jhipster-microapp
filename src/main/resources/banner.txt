@@ -7,4 +7,4 @@
   ${AnsiColor.RED}╚═╝     ${AnsiColor.YELLOW} ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚══════╝ ╚═════╝╚═╝  ╚═╝    
 
 ${AnsiColor.BRIGHT_BLUE}:: JHipster 🤓  :: Running Spring Boot ${spring-boot.version} ::
-:: http://www.jhipster.tech ::${AnsiColor.DEFAULT}
+:: https://foxtech.soibe.vn ::${AnsiColor.DEFAULT}
