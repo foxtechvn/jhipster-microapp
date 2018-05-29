@@ -320,6 +320,14 @@
             <artifactId>spring-security-data</artifactId>
         </dependency>
         <!-- jhipster-needle-maven-add-dependency -->
+        <dependency>
+    			<groupId>com.querydsl</groupId>
+    			<artifactId>querydsl-apt</artifactId>
+    		</dependency>
+            <dependency>
+    			<groupId>com.querydsl</groupId>
+    			<artifactId>querydsl-mongodb</artifactId>
+    		</dependency>
     </dependencies>
 
     <build>
@@ -545,6 +553,22 @@
                 </executions>
             </plugin>
             <!-- jhipster-needle-maven-add-plugin -->
+            <plugin>
+  		        <groupId>com.mysema.maven</groupId>
+  		        <artifactId>apt-maven-plugin</artifactId>
+  		        <version>1.1.3</version>
+  		        <executions>
+  		          <execution>
+  		            <goals>
+  		              <goal>process</goal>
+  		            </goals>
+  		            <configuration>
+  		              <outputDirectory>target/generated-sources/java</outputDirectory>
+  		              <processor>org.springframework.data.mongodb.repository.support.MongoAnnotationProcessor</processor>
+  		            </configuration>
+  		          </execution>
+  		        </executions>
+  		      </plugin>
         </plugins>
         <pluginManagement>
             <plugins>
