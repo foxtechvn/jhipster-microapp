@@ -153,7 +153,6 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.hazelcast</groupId>
@@ -204,10 +203,6 @@
         <dependency>
             <groupId>javax.cache</groupId>
             <artifactId>cache-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.mariadb.jdbc</groupId>
-            <artifactId>mariadb-java-client</artifactId>
         </dependency>
         <dependency>
             <groupId>org.assertj</groupId>
@@ -517,8 +512,8 @@
                 <configuration>
                     <changeLogFile>src/main/resources/config/liquibase/master.xml</changeLogFile>
                     <diffChangeLogFile>src/main/resources/config/liquibase/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
-                    <driver>org.mariadb.jdbc.Driver</driver>
-                    <url>jdbc:mariadb://localhost:3306/microapp</url>
+                    <driver></driver>
+                    <url></url>
                     <defaultSchemaName></defaultSchemaName>
                     <username></username>
                     <password></password>
@@ -588,7 +583,7 @@
                 -->
                 <configuration>
                     <repository>registry.gitlab.com/foxtechvn/microapp</repository>
-                    <tag>with-mariadb</tag>
+                    <tag>h2</tag>
                     <contextDirectory>${project.build.directory}</contextDirectory>
                 </configuration>
             </plugin>
