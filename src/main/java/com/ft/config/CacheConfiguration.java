@@ -45,14 +45,13 @@ public class CacheConfiguration {
     @Bean
     public HazelcastInstance hazelcastInstance(JHipsterProperties jHipsterProperties) {
         log.debug("Configuring Hazelcast");
-        String appName = env.getProperty("spring.application.name");
-        HazelcastInstance hazelCastInstance = Hazelcast.getHazelcastInstanceByName(appName);
+        HazelcastInstance hazelCastInstance = Hazelcast.getHazelcastInstanceByName("microapp");
         if (hazelCastInstance != null) {
             log.debug("Hazelcast already initialized");
             return hazelCastInstance;
         }
         Config config = new Config();
-        config.setInstanceName(appName);
+        config.setInstanceName("microapp");
         config.getNetworkConfig().setPort(5701);
         config.getNetworkConfig().setPortAutoIncrement(true);
 

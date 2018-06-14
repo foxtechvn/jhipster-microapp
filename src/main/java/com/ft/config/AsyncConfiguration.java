@@ -9,7 +9,6 @@ import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler;
 import org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.env.Environment;
 import org.springframework.scheduling.annotation.*;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
@@ -24,11 +23,8 @@ public class AsyncConfiguration implements AsyncConfigurer {
 
     private final JHipsterProperties jHipsterProperties;
 
-    private final Environment env;
-
-    public AsyncConfiguration(JHipsterProperties jHipsterProperties, Environment env) {
+    public AsyncConfiguration(JHipsterProperties jHipsterProperties) {
         this.jHipsterProperties = jHipsterProperties;
-        this.env = env;
     }
 
     @Override
@@ -39,7 +35,7 @@ public class AsyncConfiguration implements AsyncConfigurer {
         executor.setCorePoolSize(jHipsterProperties.getAsync().getCorePoolSize());
         executor.setMaxPoolSize(jHipsterProperties.getAsync().getMaxPoolSize());
         executor.setQueueCapacity(jHipsterProperties.getAsync().getQueueCapacity());
-        executor.setThreadNamePrefix(env.getProperty("spring.application.name") + "-Executor-");
+        executor.setThreadNamePrefix("microapp-Executor-");
         return new ExceptionHandlingAsyncTaskExecutor(executor);
     }
 
